@@ -5,7 +5,10 @@ class Hello
 public:
 	Hello();
 	Hello(const Hello &other);
+	Hello(const Hello &&other);
+	
 	Hello &operator=(const Hello &other);
+	Hello &operator=(const Hello &&other);
 
 	void sayHello();
 

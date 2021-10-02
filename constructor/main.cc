@@ -19,9 +19,17 @@ void printHello(Hello &h)
 void sayHello(Hello h)
 {
 	h.sayHello();
+
 }
 
-int main() {
+int main() 
+{
+	Hello h;
+	Hello h1(std::move(h));
+	return 0;
+}
+
+int test1() {
 	Hello h;
 
 	printHello(h);

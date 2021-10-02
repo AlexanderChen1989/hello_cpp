@@ -12,12 +12,25 @@ Hello::Hello(const Hello &other)
 	this->v = other.v + 100;
 }
 
+Hello::Hello(const Hello &&other)
+{
+	std::cout << "Move Construct" << std::endl;
+	*this = other;
+}
+
 Hello &Hello::operator=(const Hello &other)
 {
 	std::cout << "Assign" << std::endl;
 	Hello h;
 	h.v = other.v + 1000;
 	return h;
+}
+
+Hello &Hello::operator=(const Hello &&other)
+{
+	std::cout << "Move Assign" << std::endl;
+	*this = other;
+	return *this;
 }
 
 void Hello::sayHello()
