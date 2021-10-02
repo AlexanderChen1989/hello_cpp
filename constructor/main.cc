@@ -9,17 +9,26 @@ void printObj(int obj[], int size)
 	std::cout << std::endl;
 }
 
+// 引用调用
 void printHello(Hello &h)
 {
 	std::cout << &(h.v) << std::endl;
 }
 
-void printHello2(Hello h)
+// 类似新建，Copy
+void sayHello(Hello h)
 {
 	h.sayHello();
 }
 
-int main()
+int main() {
+	Hello h;
+
+	printHello(h);
+	sayHello(h);
+}
+
+int test()
 {
 	// 默认
 	Hello h;
