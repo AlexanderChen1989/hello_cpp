@@ -129,6 +129,8 @@ int main()
 		h1.sayHello();
 	}
 
+	// copy bit -> copy construct -> move construct 
+
 	// move construct
 	{
 		std::cout
