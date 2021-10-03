@@ -2,11 +2,34 @@
 #include <cstdlib>
 #include <assert.h>
 
-// construct ->
-// copy construct ->
-// move construct
-// copy assign
-// move assign
+/*
+
+大家好，我将开始一个讲c++编程的系列
+讲解c++中，容易让人困惑的一些知识点
+
+
+
+
+这是第一讲，拷贝构造，拷贝赋值
+
+*/
+
+
+/*
+
+steps:
+1. Hello with v, Hello, ~Hello, sayHello
+
+2. run main, copy construct
+4. copy assign
+
+5. move construct
+6. move assign
+
+keypoints:
+* construct == create new instance, assign == `=`
+* move with caution
+*/
 
 class Hello
 {

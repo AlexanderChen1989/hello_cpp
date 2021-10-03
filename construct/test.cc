@@ -2,12 +2,6 @@
 #include <cstdlib>
 #include <assert.h>
 
-// construct ->
-// copy construct ->
-// move construct
-// copy assign
-// move assign
-
 class Hello
 {
 public:
@@ -26,9 +20,9 @@ public:
 			<< "Copy Construct "
 			<< std::endl;
 
-		assert(this->v == nullptr);
+		// assert(this->v == nullptr);
 		this->v = (int *)malloc(sizeof(int));
-		*(this->v) = *(other.v) + 100;
+		*(this->v) = *(other.v);
 	}
 
 	Hello(Hello &&other)
@@ -37,20 +31,9 @@ public:
 			<< "Move Construct "
 			<< std::endl;
 
-		assert(this->v == nullptr);
+		// assert(this->v == nullptr);
 		this->v = other.v;
 		other.v = nullptr;
-	}
-
-	~Hello()
-	{
-		if (!this->v)
-			return;
-		std::cout
-			<< "Free "
-			<< this->v
-			<< std::endl;
-		free(this->v);
 	}
 
 	Hello &operator=(const Hello &other)
@@ -86,6 +69,17 @@ public:
 		this->v = other.v;
 		other.v = nullptr;
 		return *this;
+	}
+
+	~Hello()
+	{
+		if (!this->v)
+			return;
+		std::cout
+			<< "Free "
+			<< this->v
+			<< std::endl;
+		free(this->v);
 	}
 
 	void sayHello()
@@ -159,6 +153,5 @@ int main()
 		Hello h, h2, h3;
 		h = std::move(h2 = std::move(h3));
 	}
-
 	return 0;
 }
